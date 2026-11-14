@@ -1,0 +1,31 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('lead_downloads', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->nullable();
+            $table->string('email');
+            $table->string('guide_slug')->default('secret-ceylon-guide');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('lead_downloads');
+    }
+};
+

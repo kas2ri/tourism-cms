@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiyara Holidays | Curated Island & Soulful Journeys</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Cormorant Garamond (Editorial Luxury Serif) & Plus Jakarta Sans (Modern Clean Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            forest: {
+              800: '#142f28',
+              900: '#0e231e',
+              DEFAULT: '#1a3b32',
+              light: '#285448'
+            },
+            terracotta: {
+              DEFAULT: '#c86d51',
+              dark: '#af563c',
+              light: '#df8970'
+            },
+            sand: {
+              50: '#fbf9f5',
+              100: '#f4efe6',
+              200: '#e8dcce',
+              DEFAULT: '#e3d2be',
+              dark: '#c4ad93'
+            },
+            gold: '#d4af37'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar & Micro-details */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f4efe6;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c86d51;
+      border-radius: 4px;
+    }
+    .hero-glow {
+      background: radial-gradient(circle at 50% 50%, rgba(200, 109, 81, 0.15) 0%, rgba(26, 59, 50, 0) 70%);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .badge-blur {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+    }
+  </style>
+</head>
+
+<body class="bg-sand-50 text-stone-800 font-sans antialiased selection:bg-terracotta selection:text-white">
+
+  <div class="bg-forest-900 text-sand-200 text-xs py-2 px-4 border-b border-forest-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <div class="flex items-center space-x-3">
+        <span class="inline-flex items-center gap-1.5 text-emerald-400 font-medium">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          2025/2026 Small Group Season Open
+        </span>
+        <span class="hidden md:inline text-stone-500">|</span>
+        <span class="hidden md:inline text-stone-300">Small groups strictly capped at 12 souls</span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <!-- Currency Selector -->
+        <div class="flex items-center space-x-1">
+          <i class="fa-solid fa-coins text-stone-400"></i>
+          <label for="currency-select" class="sr-only">Currency</label>
+          <select id="currency-select" onchange="updateCurrency(this.value)" class="bg-transparent text-sand-100 text-xs border-none focus:outline-none cursor-pointer pr-1">
+            <option value="USD" class="text-stone-900">USD ($)</option>
+            <option value="EUR" class="text-stone-900">EUR (€)</option>
+            <option value="GBP" class="text-stone-900">GBP (£)</option>
+            <option value="AUD" class="text-stone-900">AUD (A$)</option>
+          </select>
+        </div>
+        <span class="text-stone-500">|</span>
+        <a href="tel:+94771234567" class="hover:text-terracotta transition-colors flex items-center gap-1">
+          <i class="fa-solid fa-phone text-[10px]"></i> +94 (77) 123-4567
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="sticky top-0 z-40 bg-sand-50/95 backdrop-blur-md border-b border-sand-200/80 transition-all duration-300" id="main-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        
+        <!-- Brand Logo -->
+        <a href="#" class="flex flex-col group">
+          <span class="font-serif text-3xl font-bold tracking-tight text-forest group-hover:text-terracotta transition-colors">
+            KIYARA <span class="font-normal italic text-terracotta font-serif">holidays</span>
+          </span>
+          <span class="text-[10px] tracking-[0.28em] uppercase text-stone-500 font-medium">Boutique Ceylon Journeys</span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden lg:flex items-center space-x-7 text-sm font-medium text-forest-800">
+          <a href="#expeditions" class="hover:text-terracotta transition-colors">Small Group Trips</a>
+          <a href="#bespoke" class="hover:text-terracotta transition-colors">Bespoke Journeys</a>
+          <a href="#experiences" class="hover:text-terracotta transition-colors">Curated Moments</a>
+          <a href="#trip-builder" class="text-terracotta hover:text-terracotta-dark font-semibold transition-colors flex items-center gap-1.5">
+            <i class="fa-solid fa-wand-magic-sparkles text-xs"></i> Cost Estimator
+          </a>
+          <a href="#story" class="hover:text-terracotta transition-colors">Our Philosophy</a>
+          <a href="#reviews" class="hover:text-terracotta transition-colors">Traveler Voices</a>
+        </div>
+
+        <!-- Action CTAs -->
+        <div class="hidden sm:flex items-center space-x-3">
+          <button onclick="openGuideModal()" class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-forest border border-forest/30 rounded-full hover:bg-forest hover:text-white transition-all">
+            <i class="fa-solid fa-book-open mr-1"></i> Free Island Guide
+          </button>
+          <button onclick="openInquiryModal('General Inquiry')" class="px-5 py-2.5 text-xs font-semibold uppercase tracking-wider bg-terracotta text-white rounded-full hover:bg-terracotta-dark shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+            Plan My Trip
+          </button>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <div class="flex lg:hidden items-center space-x-2">
+          <button onclick="toggleMobileMenu()" class="p-2 text-forest text-2xl focus:outline-none" aria-label="Toggle menu">
+            <i id="menu-icon" class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-sand-100 border-b border-sand-200 px-6 py-6 space-y-4">
+      <a href="#expeditions" onclick="toggleMobileMenu()" class="block text-base font-medium text-forest hover:text-terracotta">Small Group Trips</a>
+      <a href="#bespoke" onclick="toggleMobileMenu()" class="block text-base font-medium text-forest hover:text-terracotta">Bespoke Journeys</a>
+      <a href="#experiences" onclick="toggleMobileMenu()" class="block text-base font-medium text-forest hover:text-terracotta">Curated Moments</a>
+      <a href="#trip-builder" onclick="toggleMobileMenu()" class="block text-base font-semibold text-terracotta">Cost Estimator & Trip Builder</a>
+      <a href="#story" onclick="toggleMobileMenu()" class="block text-base font-medium text-forest hover:text-terracotta">Our Philosophy</a>
+      <a href="#reviews" onclick="toggleMobileMenu()" class="block text-base font-medium text-forest hover:text-terracotta">Traveler Reviews</a>
+      <div class="pt-4 flex flex-col gap-2">
+        <button onclick="toggleMobileMenu(); openGuideModal();" class="w-full py-2.5 text-xs font-semibold uppercase tracking-wider text-forest border border-forest rounded-full">
+          Download Ceylon Travel Guide (PDF)
+        </button>
+        <button onclick="toggleMobileMenu(); openInquiryModal('Mobile Inquiry');" class="w-full py-3 text-xs font-semibold uppercase tracking-wider bg-terracotta text-white rounded-full">
+          Design Custom Trip
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-forest-900 text-white">
+    <!-- Ambient Background with High Quality Tropical Landscape -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=2000&q=80" 
+           alt="Sri Lanka Misty Tea Hills & Train" 
+           class="w-full h-full object-cover opacity-40 scale-105 transition-transform duration-1000 ease-out"
+           onerror="this.src='https://placehold.co/1920x1080/1a3b32/f4efe6?text=Kiyara+Holidays+Ceylon'">
+      <div class="absolute inset-0 bg-gradient-to-t from-forest-900 via-forest-900/60 to-forest-900/30"></div>
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+      
+      <!-- Badges -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-blur border border-white/20 text-sand-100 text-xs font-medium mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span>
+        Authentic, Unhurried Sri Lanka & Tropical Sanctuaries
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-sand-50 leading-[1.1] mb-6">
+        Not just a holiday, but a journey that <span class="italic font-normal text-sand-200 underline decoration-terracotta underline-offset-8">lingers in your soul.</span>
+      </h1>
+
+      <p class="max-w-2xl mx-auto text-base sm:text-lg text-sand-100 font-light leading-relaxed mb-10">
+        We move away from crowded tourist coaches. Join intimate, thoughtfully guided journeys, stay in colonial heritage bungalows and eco-villas, and connect directly with local islanders.
+      </p>
+
+      <!-- Interactive Quick Journey Filter Bar -->
+      <div class="bg-white/95 backdrop-blur-md p-3 sm:p-4 rounded-3xl shadow-2xl text-stone-800 max-w-4xl mx-auto border border-white/30 text-left">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          
+          <!-- Filter 1: Destination / Region -->
+          <div class="p-2 sm:p-3 rounded-2xl hover:bg-sand-50 transition-colors">
+            <span class="block text-[11px] font-bold uppercase tracking-wider text-forest/70">1. Island Region</span>
+            <select id="hero-region" class="w-full mt-1 bg-transparent font-semibold text-stone-900 text-sm focus:outline-none cursor-pointer">
+              <option value="all">All Enchanting Regions</option>
+              <option value="cultural">Sigiriya & Cultural Triangle</option>
+              <option value="hills">Ella & Central High Hills</option>
+              <option value="safari">Yala & Wilpattu Wildlife</option>
+              <option value="coast">Galle Fort & Southern Coast</option>
+            </select>
+          </div>
+
+          <!-- Filter 2: Travel Style -->
+          <div class="p-2 sm:p-3 rounded-2xl hover:bg-sand-50 transition-colors border-t sm:border-t-0 sm:border-l border-stone-200">
+            <span class="block text-[11px] font-bold uppercase tracking-wider text-forest/70">2. Travel Style</span>
+            <select id="hero-style" class="w-full mt-1 bg-transparent font-semibold text-stone-900 text-sm focus:outline-none cursor-pointer">
+              <option value="all">Any Journey Format</option>
+              <option value="group">Curated Small Group (Max 12)</option>
+              <option value="bespoke">Private Chauffeur-Guide</option>
+              <option value="wellness">Ayurveda & Soul Retreat</option>
+              <option value="slow">Slow Train & Eco Hiking</option>
+            </select>
+          </div>
+
+          <!-- Filter 3: Timing / Month -->
+          <div class="p-2 sm:p-3 rounded-2xl hover:bg-sand-50 transition-colors border-t lg:border-t-0 lg:border-l border-stone-200">
+            <span class="block text-[11px] font-bold uppercase tracking-wider text-forest/70">3. When to Travel</span>
+            <select id="hero-season" class="w-full mt-1 bg-transparent font-semibold text-stone-900 text-sm focus:outline-none cursor-pointer">
+              <option value="upcoming">Next 3 Months</option>
+              <option value="winter">Dec - Mar (High Sun & Whales)</option>
+              <option value="spring">Apr - Jun (Green Season / Festive)</option>
+              <option value="summer">Jul - Sep (East Coast Surf)</option>
+            </select>
+          </div>
+
+          <!-- Search CTA Button -->
+          <div class="flex items-center">
+            <button onclick="handleHeroSearch()" class="w-full h-full min-h-[50px] bg-forest hover:bg-forest-light text-white rounded-2xl font-semibold text-sm flex items-center justify-center gap-2 transition-all shadow-md">
+              <i class="fa-solid fa-compass text-terracotta"></i> Explore Routes
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Trust Metrics -->
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-6 sm:gap-12 text-xs sm:text-sm text-sand-200 font-light">
+        <span class="flex items-center gap-2"><i class="fa-solid fa-leaf text-emerald-400"></i> Carbon-Balanced Trips</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-users text-terracotta-light"></i> Max 12 Travelers on Groups</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-certificate text-gold"></i> SLTDA Certified Insider Drivers</span>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="py-20 bg-sand-100 border-b border-sand-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs uppercase tracking-[0.25em] text-terracotta font-bold">The Kiyara Signature</span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest mt-2">How We Travel Differently</h2>
+        <p class="text-stone-600 mt-4 text-base">Inspired by soulful, slow-paced exploration. We champion human warmth, wild landscapes, and respectful tourism.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Pillar 1 -->
+        <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-sand-200/80 group">
+          <div class="w-14 h-14 bg-sand-100 text-terracotta rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-terracotta group-hover:text-white transition-colors">
+            <i class="fa-solid fa-people-roof"></i>
+          </div>
+          <h3 class="font-serif text-2xl font-bold text-forest mb-2">Small Intimate Circles</h3>
+          <p class="text-stone-600 text-sm leading-relaxed">
+            Never travel in anonymity. Our curated group journeys never exceed 12 guests, unlocking access to boutique tea estates and secret dinners.
+          </p>
+          <div class="mt-6 text-xs font-bold text-terracotta uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">
+            See Group Departures <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-sand-200/80 group">
+          <div class="w-14 h-14 bg-sand-100 text-forest rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-forest group-hover:text-sand-100 transition-colors">
+            <i class="fa-solid fa-car-side"></i>
+          </div>
+          <h3 class="font-serif text-2xl font-bold text-forest mb-2">Private Chauffeured Slow Pace</h3>
+          <p class="text-stone-600 text-sm leading-relaxed">
+            Your personal Sri Lankan storyteller & licensed chauffeur who knows every roadside king coconut stand, ancient water tank, and secret scenic viewpoint.
+          </p>
+          <div class="mt-6 text-xs font-bold text-forest uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">
+            Explore Bespoke <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-sand-200/80 group">
+          <div class="w-14 h-14 bg-sand-100 text-emerald-700 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-700 group-hover:text-white transition-colors">
+            <i class="fa-solid fa-spa"></i>
+          </div>
+          <h3 class="font-serif text-2xl font-bold text-forest mb-2">Soulful Ayurveda & Retreats</h3>
+          <p class="text-stone-600 text-sm leading-relaxed">
+            Authentic herbal medicine treatments, morning yoga overlooking misty knuckles peaks, and plant-based feasts harvested right from organic soil.
+          </p>
+          <div class="mt-6 text-xs font-bold text-emerald-700 uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">
+            View Retreats <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-sand-200/80 group">
+          <div class="w-14 h-14 bg-sand-100 text-stone-700 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-stone-800 group-hover:text-white transition-colors">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+          </div>
+          <h3 class="font-serif text-2xl font-bold text-forest mb-2">Community Direct Impact</h3>
+          <p class="text-stone-600 text-sm leading-relaxed">
+            We partner directly with home cooks, grassroots wildlife conservation naturalists, and local craftsmen. Your journey sustains real families.
+          </p>
+          <div class="mt-6 text-xs font-bold text-stone-700 uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">
+            Our Ethics <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="expeditions" class="py-24 bg-sand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <span class="text-xs uppercase tracking-[0.25em] text-terracotta font-bold">Handcrafted Itineraries</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest mt-2">Curated Journeys For 2025/2026</h2>
+          <p class="text-stone-600 mt-3 text-base max-w-xl">Every itinerary is tested and vetted by our local team. Choose to join a small group or travel this exact route privately.</p>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="mt-6 md:mt-0 flex flex-wrap gap-2" id="catalog-filters">
+          <button onclick="filterTours('all', this)" class="filter-btn active px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full bg-forest text-white transition-all">All Expeditions</button>
+          <button onclick="filterTours('group', this)" class="filter-btn px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full bg-white text-stone-700 border border-sand-200 hover:border-forest transition-all">Small Group</button>
+          <button onclick="filterTours('bespoke', this)" class="filter-btn px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full bg-white text-stone-700 border border-sand-200 hover:border-forest transition-all">Bespoke Private</button>
+          <button onclick="filterTours('wellness', this)" class="filter-btn px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full bg-white text-stone-700 border border-sand-200 hover:border-forest transition-all">Wellness & Nature</button>
+        </div>
+      </div>
+
+      <!-- Tours Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="tours-container">
+        
+        <!-- Tour Card 1 -->
+        <div class="tour-card group bg-white rounded-3xl overflow-hidden border border-sand-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="group bespoke">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=800&q=80" 
+                 alt="Sigiriya Rock Fortress Ceylon" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute top-4 left-4 flex gap-2">
+              <span class="bg-forest text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow">Bestseller</span>
+              <span class="bg-white/90 backdrop-blur text-forest text-[11px] font-semibold px-2.5 py-1 rounded-full">Max 10 Guests</span>
+            </div>
+            <div class="absolute bottom-4 right-4 bg-forest-900/80 backdrop-blur text-sand-100 text-xs px-3 py-1 rounded-full">
+              <i class="fa-regular fa-clock mr-1"></i> 10 Days / 9 Nights
+            </div>
+          </div>
+          
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center text-xs text-stone-500 mb-2 gap-2">
+                <i class="fa-solid fa-map-pin text-terracotta"></i> Cultural Triangle • Kandy • Ella • Yala
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-forest mb-2 group-hover:text-terracotta transition-colors">
+                The Heritage & Cloud Highlands Trail
+              </h3>
+              <p class="text-stone-600 text-sm leading-relaxed mb-4">
+                Sunrise at ancient Sigiriya, colonial train through emerald tea gardens, private wildlife tracking in leopard territory, and a serene finish at a Tangalle beach cove.
+              </p>
+              
+              <!-- Quick Highlights list -->
+              <div class="grid grid-cols-2 gap-2 text-xs text-stone-600 mb-6 bg-sand-50 p-3 rounded-2xl">
+                <span><i class="fa-solid fa-check text-emerald-600 mr-1"></i> Scenic Blue Train</span>
+                <span><i class="fa-solid fa-check text-emerald-600 mr-1"></i> Village Rice Feast</span>
+                <span><i class="fa-solid fa-check text-emerald-600 mr-1"></i> Leopard Safari</span>
+                <span><i class="fa-solid fa-check text-emerald-600 mr-1"></i> Boutique Bungalows</span>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-sand-200 flex items-center justify-between">
+              <div>
+                <span class="text-[11px] uppercase tracking-wider text-stone-500 block">From</span>
+                <span class="text-xl font-bold text-forest price-display" data-usd="2150">$2,150</span>
+                <span class="text-xs text-stone-500">/ person</span>
+              </div>
+              <button onclick="openItineraryModal(0)" class="px-4 py-2 bg-sand-100 hover:bg-forest hover:text-white text-forest text-xs font-bold rounded-xl transition-all">
+                Explore Plan &rarr;
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tour Card 2 -->
+        <div class="tour-card group bg-white rounded-3xl overflow-hidden border border-sand-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="bespoke">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80" 
+                 alt="Sri Lanka Coast and Palm Trees" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute top-4 left-4 flex gap-2">
+              <span class="bg-terracotta text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow">Private Chauffeured</span>
+            </div>
+            <div class="absolute bottom-4 right-4 bg-forest-900/80 backdrop-blur text-sand-100 text-xs px-3 py-1 rounded-full">
+              <i class="fa-regular fa-clock mr-1"></i> 14 Days / 13 Nights
+            </div>
+          </div>
+          
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center text-xs text-stone-500 mb-2 gap-2">
+                <i class="fa-solid fa-map-pin text-terracotta"></i> Colombo • Gal Oya • Galle • Weligama
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-forest mb-2 group-hover:text-terracotta transition-colors">
+                The Connoisseur’s Ceylon: Wild & Slow
+              </h3>
+              <p class="text-stone-600 text-sm leading-relaxed mb-4">
+                A leisurely journey tailored for couples and slow travelers. Stay in Geoffrey Bawa architectural treasures, boat safaris with indigenous Vedda elders, and sunset gin & tonics in Galle Fort.
+              </p>
+              
+              <div class="grid grid-cols-2 gap-2 text-xs text-stone-600 mb-6 bg-sand-50 p-3 rounded-2xl">
+                <span><i class="fa-solid fa-check text-emerald-600 mr-1"></i> Private Chauffeur</span>
+                <span><i class="fa-solid fa-check text-emerald-600 mr-1"></i> Geoffrey Bawa Stays</span>
+                <span><i class="fa-solid fa-check text-emerald-600 mr-1"></i> Gal Oya Boat Safari</span>
+                <span><i class="fa-solid fa-check text-emerald-600 mr-1"></i> Galle Cooking Class</span>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-sand-200 flex items-center justify-between">
+              <div>
+                <span class="text-[11px] uppercase tracking-wider text-stone-500 block">From</span>
+                <span class="text-xl font-bold text-forest price-display" data-usd="3200">$3,200</span>
+                <span class="text-xs text-stone-500">/ person</span>
+              </div>
+              <button onclick="openItineraryModal(1)" class="px-4 py-2 bg-sand-100 hover:bg-forest hover:text-white text-forest text-xs font-bold rounded-xl transition-all">
+                Explore Plan &rarr;
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tour Card 3 -->
+        <div class="tour-card group bg-white rounded-3xl overflow-hidden border border-sand-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="wellness group">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80" 
+                 alt="Ayurveda and Yoga Sri Lanka Retreat" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute top-4 left-4 flex gap-2">
+              <span class="bg-emerald-700 text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow">Wellness & Rejuvenation</span>
+            </div>
+            <div class="absolute bottom-4 right-4 bg-forest-900/80 backdrop-blur text-sand-100 text-xs px-3 py-1 rounded-full">
+              <i class="fa-regular fa-clock mr-1"></i> 8 Days / 7 Nights
+            </div>
+          </div>
+          
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center text-xs text-stone-500 mb-2 gap-2">
+                <i class="fa-solid fa-map-pin text-terracotta"></i> Knuckles Range • Mirissa Coast
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-forest mb-2 group-hover:text-terracotta transition-colors">
+                Prana: Forest Ayurveda & Coastal Surf
+              </h3>
+              <p class="text-stone-600 text-sm leading-relaxed mb-4">
+                Begin in an eco-sanctuary hidden in the Knuckles mountain range with personal Ayurvedic doctor consultations, herbal bath rituals, then move south for gentle surf and sound baths.
+              </p>
+              
+              <div class="grid grid-cols-2 gap-2 text-xs text-stone-600 mb-6 bg-sand-50 p-3 rounded-2xl">
+                <span><i class="fa-solid fa-check text-emerald-600 mr-1"></i> Daily Herbal Treatments</span>
+                <span><i class="fa-solid fa-check text-emerald-600 mr-1"></i> Organic Farm Meals</span>
+                <span><i class="fa-solid fa-check text-emerald-600 mr-1"></i> Daily Vinyasa & Yin</span>
+                <span><i class="fa-solid fa-check text-emerald-600 mr-1"></i> Sound Bath Ceremonies</span>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-sand-200 flex items-center justify-between">
+              <div>
+                <span class="text-[11px] uppercase tracking-wider text-stone-500 block">From</span>
+                <span class="text-xl font-bold text-forest price-display" data-usd="1890">$1,890</span>
+                <span class="text-xs text-stone-500">/ person</span>
+              </div>
+              <button onclick="openItineraryModal(2)" class="px-4 py-2 bg-sand-100 hover:bg-forest hover:text-white text-forest text-xs font-bold rounded-xl transition-all">
+                Explore Plan &rarr;
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Custom Request Banner -->
+      <div class="mt-12 bg-forest text-white p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+        <div class="space-y-1 text-center md:text-left">
+          <h4 class="font-serif text-2xl font-bold">Have your own dates or unique island dream?</h4>
+          <p class="text-sand-200 text-sm">We can remodel any of these routes or craft one from scratch specifically around your group.</p>
+        </div>
+        <button onclick="openInquiryModal('Customized Itinerary')" class="whitespace-nowrap px-6 py-3 bg-terracotta hover:bg-terracotta-dark text-white text-xs uppercase font-bold tracking-wider rounded-full transition-all">
+          Request Bespoke Proposal
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="trip-builder" class="py-24 bg-sand-100 border-y border-sand-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-[0.25em] text-terracotta font-bold">Interactive Planner</span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest mt-2">Design & Estimate Your Journey</h2>
+        <p class="text-stone-600 mt-3 text-sm sm:text-base">Toggle your travel preferences below to calculate an instant estimated budget range for your customized Ceylon expedition.</p>
+      </div>
+
+      <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-sand-200">
+        
+        <!-- Step 1: Traveling Party -->
+        <div class="mb-8">
+          <label class="block text-xs font-bold uppercase tracking-wider text-forest mb-3">1. Who is traveling with you?</label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="builder-party">
+            <button type="button" onclick="selectParty('solo', 1, this)" class="builder-btn active p-4 rounded-2xl border-2 border-terracotta bg-sand-50/50 text-left transition-all">
+              <i class="fa-solid fa-user text-terracotta text-lg mb-2 block"></i>
+              <span class="font-bold text-sm block text-forest">Solo Adventurer</span>
+              <span class="text-xs text-stone-500">1 Traveler</span>
+            </button>
+            <button type="button" onclick="selectParty('couple', 2, this)" class="builder-btn p-4 rounded-2xl border-2 border-stone-200 hover:border-forest text-left transition-all">
+              <i class="fa-solid fa-heart text-stone-600 text-lg mb-2 block"></i>
+              <span class="font-bold text-sm block text-forest">Couple / Pair</span>
+              <span class="text-xs text-stone-500">2 Travelers</span>
+            </button>
+            <button type="button" onclick="selectParty('family', 4, this)" class="builder-btn p-4 rounded-2xl border-2 border-stone-200 hover:border-forest text-left transition-all">
+              <i class="fa-solid fa-people-group text-stone-600 text-lg mb-2 block"></i>
+              <span class="font-bold text-sm block text-forest">Family Tribe</span>
+              <span class="text-xs text-stone-500">3 - 5 Travelers</span>
+            </button>
+            <button type="button" onclick="selectParty('friends', 6, this)" class="builder-btn p-4 rounded-2xl border-2 border-stone-200 hover:border-forest text-left transition-all">
+              <i class="fa-solid fa-users-rays text-stone-600 text-lg mb-2 block"></i>
+              <span class="font-bold text-sm block text-forest">Friends Group</span>
+              <span class="text-xs text-stone-500">6+ Travelers</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2: Trip Duration Slider -->
+        <div class="mb-8">
+          <div class="flex justify-between items-center mb-2">
+            <label class="text-xs font-bold uppercase tracking-wider text-forest">2. How many days would you like to explore?</label>
+            <span class="text-base font-bold text-terracotta" id="duration-val">10 Days</span>
+          </div>
+          <input type="range" id="builder-days" min="5" max="21" value="10" step="1" 
+                 oninput="updateDuration(this.value)" 
+                 class="w-full h-2 bg-sand-200 rounded-lg appearance-none cursor-pointer accent-terracotta">
+          <div class="flex justify-between text-[11px] text-stone-400 mt-1">
+            <span>5 Days (Express Focus)</span>
+            <span>10-12 Days (Ideal Island Loop)</span>
+            <span>21 Days (Slow Immersion)</span>
+          </div>
+        </div>
+
+        <!-- Step 3: Accommodation Style -->
+        <div class="mb-8">
+          <label class="block text-xs font-bold uppercase tracking-wider text-forest mb-3">3. Preferred Accommodation Tier</label>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="builder-tier">
+            <button type="button" onclick="selectTier('boutique', 190, this)" class="tier-btn active p-4 rounded-2xl border-2 border-terracotta bg-sand-50/50 text-left transition-all">
+              <div class="font-bold text-sm text-forest mb-1">Eco-Chic & Heritage</div>
+              <p class="text-xs text-stone-500">Characterful boutique stays, colonial bungalows, cozy tree-lodges.</p>
+            </button>
+            <button type="button" onclick="selectTier('luxury', 310, this)" class="tier-btn p-4 rounded-2xl border-2 border-stone-200 hover:border-forest text-left transition-all">
+              <div class="font-bold text-sm text-forest mb-1">High Luxury & Villas</div>
+              <p class="text-xs text-stone-500">5-star tea trails, private pool villas, Aman-tier service & spas.</p>
+            </button>
+            <button type="button" onclick="selectTier('homestead', 130, this)" class="tier-btn p-4 rounded-2xl border-2 border-stone-200 hover:border-forest text-left transition-all">
+              <div class="font-bold text-sm text-forest mb-1">Rustic & Community</div>
+              <p class="text-xs text-stone-500">Warm family guesthouses, safari glamping, tea planter homes.</p>
+            </button>
+          </div>
+        </div>
+
+        <!-- Live Price Calculation Result Card -->
+        <div class="p-6 bg-sand-50 rounded-2xl border border-sand-200 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-stone-500">Estimated Total Investment</span>
+            <div class="flex items-baseline gap-2 mt-1">
+              <span class="text-3xl sm:text-4xl font-extrabold text-forest" id="builder-calc-total">$1,900</span>
+              <span class="text-xs text-stone-500" id="builder-calc-perperson">approx. $1,900 / person</span>
+            </div>
+            <p class="text-[11px] text-stone-500 mt-1">Includes private vehicle + dedicated driver-guide, all stays, curated breakfasts & key permits.</p>
+          </div>
+          <button onclick="requestEstimatedTrip()" class="w-full md:w-auto px-8 py-3.5 bg-terracotta hover:bg-terracotta-dark text-white rounded-full text-xs font-bold uppercase tracking-wider shadow transition-all">
+            Get Complete Custom Itinerary
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="experiences" class="py-24 bg-sand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs uppercase tracking-[0.25em] text-terracotta font-bold">Unscripted Magic</span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest mt-2">Moments That Can’t Be Googled</h2>
+        <p class="text-stone-600 mt-3 text-base">We weave small, intimate island micro-experiences into every journey you take with us.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Experience 1 -->
+        <div class="group relative rounded-3xl overflow-hidden shadow-sm h-96">
+          <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=600&q=80" 
+               alt="Cooking with Amma" 
+               class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-forest-900 via-forest-900/40 to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6 text-white">
+            <span class="text-[10px] uppercase font-bold tracking-widest text-terracotta-light">Culinary Heritage</span>
+            <h3 class="font-serif text-xl font-bold mt-1">Village Claypot Feast with Amma Lakshmi</h3>
+            <p class="text-xs text-sand-100 opacity-90 mt-2 line-clamp-3">
+              Grind coconut on ancient granite stones, pluck organic spices from the backyard forest, and cook clay-pot jackfruit curry over wood embers.
+            </p>
+          </div>
+        </div>
+
+        <!-- Experience 2 -->
+        <div class="group relative rounded-3xl overflow-hidden shadow-sm h-96">
+          <img src="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=600&q=80" 
+               alt="Wild Leopard Trackers" 
+               class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-forest-900 via-forest-900/40 to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6 text-white">
+            <span class="text-[10px] uppercase font-bold tracking-widest text-terracotta-light">Ethical Wildlife</span>
+            <h3 class="font-serif text-xl font-bold mt-1">Twilight Tracking with Wildlife Biologists</h3>
+            <p class="text-xs text-sand-100 opacity-90 mt-2 line-clamp-3">
+              Avoid high-speed jeep queues. Learn paw-print identification, bird call deciphering, and ethical leopard monitoring in buffer zones.
+            </p>
+          </div>
+        </div>
+
+        <!-- Experience 3 -->
+        <div class="group relative rounded-3xl overflow-hidden shadow-sm h-96">
+          <img src="https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=600&q=80" 
+               alt="Tea Pluckers Ceylon" 
+               class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-forest-900 via-forest-900/40 to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6 text-white">
+            <span class="text-[10px] uppercase font-bold tracking-widest text-terracotta-light">Highlands Life</span>
+            <h3 class="font-serif text-xl font-bold mt-1">Secret Tea Tasting with Master Planters</h3>
+            <p class="text-xs text-sand-100 opacity-90 mt-2 line-clamp-3">
+              Walk the private misty ridges of Bogawantalawa, pluck 'two leaves and a bud' and sample rare golden tips teas in an 1890s factory salon.
+            </p>
+          </div>
+        </div>
+
+        <!-- Experience 4 -->
+        <div class="group relative rounded-3xl overflow-hidden shadow-sm h-96">
+          <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=600&q=80" 
+               alt="Galle Fort Sunset" 
+               class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-forest-900 via-forest-900/40 to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6 text-white">
+            <span class="text-[10px] uppercase font-bold tracking-widest text-terracotta-light">Coastal Living</span>
+            <h3 class="font-serif text-xl font-bold mt-1">Galle Fort Ramparts & Carrom Match</h3>
+            <p class="text-xs text-sand-100 opacity-90 mt-2 line-clamp-3">
+              Watch cliff divers as golden hour breaks over the Indian Ocean, followed by a friendly game of carrom board and fresh coconut arrack cocktails.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="story" class="py-24 bg-forest text-sand-50 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        <div>
+          <span class="text-xs uppercase tracking-[0.25em] text-terracotta-light font-bold">Why We Exist</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold mt-2 text-white">We Fell Out of Love With Tourist Buses. So We Built Kiyara.</h2>
+          
+          <div class="space-y-4 text-sand-100 font-light text-base mt-6 leading-relaxed">
+            <p>
+              Too much travel in Sri Lanka has become hurried: checking off sights from a checklist, rushing through crowded temples in huge tour groups, and eating buffet food made for tourists rather than locals.
+            </p>
+            <p>
+              <strong class="text-white font-semibold">Kiyara Holidays was born from a simpler longing:</strong> to introduce our island home with dignity, depth, and unhurried grace. When you travel with us, you are introduced as an honored guest to our personal friends—our favorite boutique lodge owners, generational tea masters, and veteran safari spotters.
+            </p>
+          </div>
+
+          <!-- Feature Bullets -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 pt-6 border-t border-forest-light">
+            <div class="flex items-start gap-3">
+              <i class="fa-solid fa-hand-holding-heart text-terracotta text-lg mt-1"></i>
+              <div>
+                <h4 class="font-bold text-sm text-white">100% Sri Lankan Owned</h4>
+                <p class="text-xs text-sand-200 mt-0.5">85% of your trip investment remains in local island hands.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fa-solid fa-shield-cat text-terracotta text-lg mt-1"></i>
+              <div>
+                <h4 class="font-bold text-sm text-white">Strict Wildlife Ethics</h4>
+                <p class="text-xs text-sand-200 mt-0.5">No elephant riding, no crowded jeep chases in national parks.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-4">
+            <button onclick="openInsidersModal()" class="px-6 py-3 bg-white text-forest text-xs font-bold uppercase tracking-wider rounded-full hover:bg-sand-100 transition-all">
+              Meet Our Drivers & Guides &rarr;
+            </button>
+            <button onclick="openGuideModal()" class="px-6 py-3 border border-sand-200 text-sand-100 text-xs font-bold uppercase tracking-wider rounded-full hover:bg-forest-light transition-all">
+              Get Our Free Travel Guide
+            </button>
+          </div>
+        </div>
+
+        <!-- Visual Collages -->
+        <div class="relative">
+          <div class="aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-forest-light">
+            <img src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=1000&q=80" 
+                 alt="Ceylon Local Life" 
+                 class="w-full h-full object-cover">
+          </div>
+          
+          <!-- Floating Story Badge -->
+          <div class="absolute -bottom-6 -left-6 bg-sand-100 text-forest p-6 rounded-2xl shadow-2xl max-w-xs border border-sand-200 hidden sm:block">
+            <div class="flex items-center gap-1 text-gold text-sm mb-1">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-xs italic text-stone-700">"Kiyara felt like traveling with a close local friend who holds the key to every hidden garden in Sri Lanka."</p>
+            <span class="block text-[11px] font-bold mt-2 text-terracotta">— Elena & Thomas (Munich, Germany)</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="reviews" class="py-24 bg-sand-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+        <div>
+          <span class="text-xs uppercase tracking-[0.25em] text-terracotta font-bold">Unfiltered Impressions</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest mt-2">What Our Wanderers Say</h2>
+        </div>
+        <div class="mt-4 md:mt-0 flex items-center gap-3">
+          <div class="flex items-center text-gold text-lg">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <span class="text-sm font-bold text-forest">5.0 / 5.0 on Google & Tripadvisor</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Review 1 -->
+        <div class="bg-white p-8 rounded-3xl shadow-sm border border-sand-200 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-gold text-xs mb-4">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <h4 class="font-serif text-xl font-bold text-forest mb-3">"The antithesis of commercial tourism."</h4>
+            <p class="text-stone-600 text-sm leading-relaxed">
+              We joined the 10-day small group trip with 7 other people. It felt like a group of old friends on a road trip. Our guide, Chathura, stopped at a roadside king coconut stall that led to a 2-hour conversation with village fishermen. Pure magic.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-sand-100 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-sand-200 flex items-center justify-center font-bold text-forest text-sm">
+              SJ
+            </div>
+            <div>
+              <div class="font-bold text-sm text-forest">Sarah Jenkins</div>
+              <div class="text-xs text-stone-500">Melbourne, Australia • Small Group Trip</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="bg-white p-8 rounded-3xl shadow-sm border border-sand-200 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-gold text-xs mb-4">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <h4 class="font-serif text-xl font-bold text-forest mb-3">"Flawlessly planned bespoke honeymoon."</h4>
+            <p class="text-stone-600 text-sm leading-relaxed">
+              Kiyara designed our 14-day chauffeured tour. We stayed in tea estate bungalows that felt plucked out of a dream. Our driver Rohan was patient, kind, and knowledgeable. We didn't have to stress about a single logistics detail.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-sand-100 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-terracotta/20 text-terracotta flex items-center justify-center font-bold text-sm">
+              ML
+            </div>
+            <div>
+              <div class="font-bold text-sm text-forest">Marcus & Lea Laurent</div>
+              <div class="text-xs text-stone-500">Lyon, France • Private Honeymoon</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="bg-white p-8 rounded-3xl shadow-sm border border-sand-200 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-gold text-xs mb-4">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <h4 class="font-serif text-xl font-bold text-forest mb-3">"Ayurveda that changed my perspective."</h4>
+            <p class="text-stone-600 text-sm leading-relaxed">
+              Traveling solo as a woman, safety was paramount. From the moment I was picked up at CMB airport, I felt cocooned in genuine hospitality. The Knuckles eco-lodge was the most peaceful place I have ever visited on earth.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-sand-100 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-sm">
+              AW
+            </div>
+            <div>
+              <div class="font-bold text-sm text-forest">Astrid Weber</div>
+              <div class="text-xs text-stone-500">Berlin, Germany • Solo Wellness</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="py-20 bg-forest-900 text-sand-50 relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <span class="inline-block px-3 py-1 bg-terracotta text-white text-[11px] font-bold uppercase tracking-widest rounded-full mb-4">
+        Free 2025 Edition
+      </span>
+      <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">
+        The Insider’s Guide to Ceylon: 40 Hidden Corners
+      </h2>
+      <p class="text-sand-200 text-base max-w-2xl mx-auto mb-8 font-light">
+        Download our free 48-page editorial guidebook. Packed with vetted boutique stays, tipping etiquette, train ticket secrets, and street food safety tips.
+      </p>
+
+      <form onsubmit="handleInlineGuide(event)" class="max-w-md mx-auto flex flex-col sm:flex-row gap-2">
+        <input type="email" id="inline-guide-email" required placeholder="Enter your email address..." 
+               class="px-5 py-3 rounded-full bg-white/10 text-white placeholder-stone-400 border border-white/20 focus:outline-none focus:ring-2 focus:ring-terracotta flex-1 text-sm">
+        <button type="submit" class="px-6 py-3 bg-terracotta hover:bg-terracotta-dark text-white rounded-full text-xs uppercase font-bold tracking-wider transition-all">
+          Download PDF
+        </button>
+      </form>
+      <span class="text-[11px] text-stone-400 block mt-3">We respect your inbox. Instant PDF download link + unsubscribe anytime.</span>
+    </div>
+  </section>
+
+  <footer class="bg-forest-900 text-sand-200 pt-16 pb-12 border-t border-forest-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+        
+        <!-- Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <a href="#" class="font-serif text-3xl font-bold text-white tracking-tight">
+            KIYARA <span class="italic text-terracotta font-serif">holidays</span>
+          </a>
+          <p class="text-sm text-stone-400 max-w-sm leading-relaxed">
+            Curated island journeys, small group departures, and tailor-made bespoke itineraries celebrating the authentic pulse of Sri Lanka.
+          </p>
+          <div class="text-xs text-stone-400 space-y-1">
+            <p><i class="fa-solid fa-location-dot text-terracotta mr-2"></i> 42/B Lighthouse Street, Galle Fort, Sri Lanka</p>
+            <p><i class="fa-solid fa-envelope text-terracotta mr-2"></i> hello@kiyaraholidays.com</p>
+            <p><i class="fa-solid fa-phone text-terracotta mr-2"></i> +94 (77) 123-4567</p>
+          </div>
+        </div>
+
+        <!-- Links: Expeditions -->
+        <div>
+          <h4 class="font-bold text-sm uppercase tracking-wider text-white mb-4">Expeditions</h4>
+          <ul class="text-sm space-y-2 text-stone-400">
+            <li><a href="#expeditions" class="hover:text-sand-100 transition-colors">Small Group Departures</a></li>
+            <li><a href="#expeditions" class="hover:text-sand-100 transition-colors">Heritage Highland Tour</a></li>
+            <li><a href="#expeditions" class="hover:text-sand-100 transition-colors">Wildlife & Leopard Trail</a></li>
+            <li><a href="#expeditions" class="hover:text-sand-100 transition-colors">Ayurvedic Healing Stays</a></li>
+            <li><a href="#trip-builder" class="hover:text-sand-100 transition-colors">Bespoke Honeymoons</a></li>
+          </ul>
+        </div>
+
+        <!-- Links: Philosophy & Guides -->
+        <div>
+          <h4 class="font-bold text-sm uppercase tracking-wider text-white mb-4">Discover</h4>
+          <ul class="text-sm space-y-2 text-stone-400">
+            <li><a href="#story" class="hover:text-sand-100 transition-colors">Why Kiyara Holidays</a></li>
+            <li><button onclick="openInsidersModal()" class="hover:text-sand-100 transition-colors text-left">Our Driver-Storytellers</button></li>
+            <li><a href="#experiences" class="hover:text-sand-100 transition-colors">Local Immersions</a></li>
+            <li><button onclick="openGuideModal()" class="hover:text-sand-100 transition-colors text-left">Island Travel Guide</button></li>
+            <li><a href="#reviews" class="hover:text-sand-100 transition-colors">Traveler Reviews</a></li>
+          </ul>
+        </div>
+
+        <!-- Accreditations & Socials -->
+        <div>
+          <h4 class="font-bold text-sm uppercase tracking-wider text-white mb-4">Connectedness</h4>
+          <p class="text-xs text-stone-400 mb-4">Official Sri Lanka Tourism Development Authority (SLTDA) Licensed Operator.</p>
+          <div class="flex items-center space-x-3 text-stone-300">
+            <a href="#" class="w-9 h-9 rounded-full bg-forest-800 hover:bg-terracotta flex items-center justify-center transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="w-9 h-9 rounded-full bg-forest-800 hover:bg-terracotta flex items-center justify-center transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="w-9 h-9 rounded-full bg-forest-800 hover:bg-terracotta flex items-center justify-center transition-colors"><i class="fa-brands fa-pinterest-p"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-forest-800 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-4">
+        <div>
+          &copy; 2025 Kiyara Holidays (Pvt) Ltd. All rights reserved. Handcrafted in Sri Lanka.
+        </div>
+        <div class="flex space-x-6">
+          <a href="#" class="hover:underline">Privacy Policy</a>
+          <a href="#" class="hover:underline">Booking Terms & Conditions</a>
+          <a href="#" class="hover:underline">Sustainability Charter</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="fixed bottom-6 right-6 z-40">
+    <div id="wa-chatbox" class="hidden mb-3 w-80 bg-white rounded-3xl shadow-2xl border border-sand-200 overflow-hidden transform transition-all duration-300">
+      <div class="bg-forest p-4 text-white flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="relative">
+            <div class="w-10 h-10 rounded-full bg-terracotta flex items-center justify-center font-bold text-white text-sm">
+              KH
+            </div>
+            <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-400 rounded-full border-2 border-forest"></span>
+          </div>
+          <div>
+            <h5 class="text-sm font-bold">Kiyara Island Concierge</h5>
+            <p class="text-[10px] text-sand-200">Online • Typically replies in 5m</p>
+          </div>
+        </div>
+        <button onclick="toggleWhatsAppChat()" class="text-white hover:text-sand-200"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="p-4 bg-sand-50 space-y-3 max-h-64 overflow-y-auto text-xs text-stone-700">
+        <div class="bg-white p-3 rounded-2xl shadow-sm border border-sand-200/60 max-w-[85%]">
+          Ayubowan! 🙏 Welcome to Kiyara Holidays. Need recommendations for best season to visit Sri Lanka or customized route planning?
+        </div>
+        <div class="bg-white p-3 rounded-2xl shadow-sm border border-sand-200/60 max-w-[85%]">
+          Tell us your travel dates and our founder or trip curator will help right away!
+        </div>
+      </div>
+
+      <div class="p-3 bg-white border-t border-sand-200 flex gap-2">
+        <input type="text" id="wa-input" placeholder="Type your trip question..." class="flex-1 text-xs border border-stone-300 rounded-full px-4 py-2 focus:outline-none focus:border-forest">
+        <button onclick="sendSimulatedWhatsApp()" class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center hover:bg-emerald-700">
+          <i class="fa-solid fa-paper-plane text-xs"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Floating Button -->
+    <button onclick="toggleWhatsAppChat()" class="w-14 h-14 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full shadow-2xl flex items-center justify-center text-2xl transition-all transform hover:scale-105 active:scale-95" aria-label="Chat on WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </button>
+  </div>
+
+  <div id="itinerary-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div class="bg-white w-full max-w-4xl rounded-3xl shadow-2xl overflow-hidden my-auto max-h-[90vh] flex flex-col border border-sand-200">
+      
+      <!-- Modal Header -->
+      <div class="relative bg-forest text-white p-6 sm:p-8 flex justify-between items-start">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-widest text-terracotta-light" id="modal-tour-tag">Small Group Departure</span>
+          <h3 class="font-serif text-2xl sm:text-3xl font-bold mt-1 text-white" id="modal-tour-title">The Heritage & Cloud Highlands Trail</h3>
+          <p class="text-xs sm:text-sm text-sand-200 mt-1" id="modal-tour-meta">10 Days / 9 Nights • Max 10 Guests • All-Inclusive Logistics</p>
+        </div>
+        <button onclick="closeItineraryModal()" class="text-white hover:text-terracotta text-2xl p-1 focus:outline-none">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body Content -->
+      <div class="p-6 sm:p-8 overflow-y-auto space-y-6 flex-1 text-stone-800">
+        
+        <!-- Day by Day Accordion / Steps -->
+        <div>
+          <h4 class="font-serif text-xl font-bold text-forest mb-4">Curated Day-by-Day Flow</h4>
+          <div class="space-y-4" id="modal-day-flow">
+            <!-- Dynamic days will be rendered here by JS -->
+          </div>
+        </div>
+
+        <!-- Inclusions & Exclusions -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-5 bg-sand-50 rounded-2xl border border-sand-200">
+          <div>
+            <h5 class="text-xs font-bold uppercase tracking-wider text-forest mb-2 flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check text-emerald-600"></i> What’s Included
+            </h5>
+            <ul class="text-xs text-stone-600 space-y-1.5" id="modal-inclusions">
+              <li>• Handpicked boutique hotels and heritage bungalows</li>
+              <li>• Private AC transportation & SLTDA certified driver-guide</li>
+              <li>• Sigiriya Fortress & cultural monument entry tickets</li>
+              <li>• Scenic 1st class train reservation tickets</li>
+              <li>• Breakfast daily & featured village feasts</li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="text-xs font-bold uppercase tracking-wider text-forest mb-2 flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-xmark text-stone-400"></i> What’s Not Included
+            </h5>
+            <ul class="text-xs text-stone-600 space-y-1.5">
+              <li>• International flight tickets</li>
+              <li>• Sri Lanka ETA travel visa fees</li>
+              <li>• Discretionary driver and porter tips</li>
+              <li>• Alcoholic drinks outside curated tastings</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="bg-sand-100 p-4 sm:p-6 border-t border-sand-200 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <span class="text-xs text-stone-500 uppercase tracking-wider block">Starting Rate</span>
+          <span class="text-2xl font-bold text-forest" id="modal-price">$2,150</span>
+          <span class="text-xs text-stone-500">per person (twin share)</span>
+        </div>
+        <div class="flex gap-3">
+          <button onclick="closeItineraryModal()" class="px-5 py-2.5 rounded-full border border-stone-300 text-xs font-bold text-stone-700 hover:bg-stone-200">
+            Back
+          </button>
+          <button onclick="bookThisTourFromModal()" class="px-6 py-2.5 rounded-full bg-terracotta hover:bg-terracotta-dark text-white text-xs font-bold uppercase tracking-wider shadow">
+            Book / Inquire Dates
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="inquiry-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div class="bg-white w-full max-w-xl rounded-3xl shadow-2xl overflow-hidden my-auto border border-sand-200">
+      
+      <div class="bg-forest text-white p-6 flex justify-between items-center">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-terracotta-light">Direct Island Specialist</span>
+          <h3 class="font-serif text-2xl font-bold mt-1">Design Your Ceylon Journey</h3>
+        </div>
+        <button onclick="closeInquiryModal()" class="text-white hover:text-terracotta text-2xl focus:outline-none">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handleInquirySubmit(event)" class="p-6 space-y-4 text-xs text-stone-800">
+        
+        <input type="hidden" id="inquiry-context" value="General">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block font-bold text-stone-700 mb-1">Your Full Name *</label>
+            <input type="text" required placeholder="e.g. Eleanor Vance" class="w-full p-3 rounded-xl border border-stone-300 focus:outline-none focus:border-forest text-sm">
+          </div>
+          <div>
+            <label class="block font-bold text-stone-700 mb-1">Email Address *</label>
+            <input type="email" required placeholder="e.g. eleanor@example.com" class="w-full p-3 rounded-xl border border-stone-300 focus:outline-none focus:border-forest text-sm">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block font-bold text-stone-700 mb-1">WhatsApp / Phone Number</label>
+            <input type="tel" placeholder="+44 7700 900077" class="w-full p-3 rounded-xl border border-stone-300 focus:outline-none focus:border-forest text-sm">
+          </div>
+          <div>
+            <label class="block font-bold text-stone-700 mb-1">Estimated Travel Month / Year</label>
+            <select class="w-full p-3 rounded-xl border border-stone-300 focus:outline-none focus:border-forest text-sm bg-white">
+              <option>November 2024 - January 2025</option>
+              <option>February 2025 - April 2025</option>
+              <option>May 2025 - August 2025</option>
+              <option>Late 2025 / 2026</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block font-bold text-stone-700 mb-1">Number of Travelers</label>
+            <select class="w-full p-3 rounded-xl border border-stone-300 focus:outline-none focus:border-forest text-sm bg-white">
+              <option>1 (Solo traveler)</option>
+              <option selected>2 (Couple / Pair)</option>
+              <option>3 - 5 (Small family or friends)</option>
+              <option>6+ (Private Group)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-stone-700 mb-1">Preferred Trip Style</label>
+            <select class="w-full p-3 rounded-xl border border-stone-300 focus:outline-none focus:border-forest text-sm bg-white">
+              <option>Small Group Departure</option>
+              <option selected>Tailor-Made Private Chauffeured</option>
+              <option>Ayurveda & Soul Retreat</option>
+              <option>Honeymoon & Luxury Romance</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-stone-700 mb-1">Tell us your wishes, pace, or special interests</label>
+          <textarea rows="3" placeholder="e.g. We love tea hill walks, boutique hotels, quiet beaches, and want to avoid tourist crowds..." class="w-full p-3 rounded-xl border border-stone-300 focus:outline-none focus:border-forest text-sm"></textarea>
+        </div>
+
+        <div class="pt-2">
+          <button type="submit" class="w-full py-3.5 bg-terracotta hover:bg-terracotta-dark text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md">
+            Send My Travel Request to Founder
+          </button>
+          <p class="text-center text-[10px] text-stone-400 mt-2">Zero obligations. You will receive a personalized handcrafted draft within 24 hours.</p>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <div id="guide-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white max-w-md w-full rounded-3xl p-6 sm:p-8 shadow-2xl relative border border-sand-200">
+      <button onclick="closeGuideModal()" class="absolute top-5 right-5 text-stone-400 hover:text-stone-800 text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="text-center">
+        <div class="w-16 h-16 bg-sand-100 text-forest rounded-2xl mx-auto flex items-center justify-center text-3xl mb-4">
+          <i class="fa-solid fa-book-bookmark"></i>
+        </div>
+        <span class="text-[10px] uppercase font-bold tracking-widest text-terracotta">2025 Exclusive Edition</span>
+        <h3 class="font-serif text-2xl font-bold text-forest mt-1">Download "Secret Ceylon" Guide</h3>
+        <p class="text-xs text-stone-600 mt-2">
+          40 hand-selected tea estates, safe train booking secrets, boutique villas, and our local etiquette guide.
+        </p>
+      </div>
+
+      <form onsubmit="handleGuideDownload(event)" class="mt-6 space-y-3">
+        <input type="text" required placeholder="Your First Name" class="w-full p-3 rounded-xl border border-stone-300 text-xs focus:outline-none focus:border-forest">
+        <input type="email" id="modal-guide-email" required placeholder="Where should we email the PDF?" class="w-full p-3 rounded-xl border border-stone-300 text-xs focus:outline-none focus:border-forest">
+        <button type="submit" class="w-full py-3 bg-forest hover:bg-forest-light text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow">
+          Download Guidebook Now (PDF)
+        </button>
+      </form>
+      <p class="text-[10px] text-stone-400 text-center mt-3">Free instant download. We will never share or sell your details.</p>
+    </div>
+  </div>
+
+  <div id="insiders-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div class="bg-white max-w-2xl w-full rounded-3xl shadow-2xl overflow-hidden my-auto border border-sand-200">
+      <div class="bg-forest text-white p-6 flex justify-between items-center">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-terracotta-light">The Heart of Kiyara</span>
+          <h3 class="font-serif text-2xl font-bold mt-1">Meet Our Local Driver-Storytellers</h3>
+        </div>
+        <button onclick="closeInsidersModal()" class="text-white hover:text-terracotta text-2xl">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-6 max-h-[70vh] overflow-y-auto text-stone-800 text-xs">
+        
+        <!-- Insider 1 -->
+        <div class="flex flex-col sm:flex-row items-center gap-4 bg-sand-50 p-4 rounded-2xl border border-sand-200">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" 
+               alt="Rohan - Driver Storyteller" 
+               class="w-20 h-20 rounded-full object-cover border-2 border-forest">
+          <div>
+            <div class="flex items-center gap-2">
+              <h4 class="font-bold text-sm text-forest">Rohan Jayawardena</h4>
+              <span class="bg-forest text-sand-100 text-[10px] px-2 py-0.5 rounded-full">14 Years Guiding</span>
+            </div>
+            <p class="text-stone-600 mt-1">
+              "I grew up in the misty tea villages outside Hatton. I love taking our travelers to my friend’s estate where we can pick wild tea leaves and drink fresh ginger tea together on the ridge."
+            </p>
+            <span class="text-[11px] font-semibold text-terracotta block mt-1"><i class="fa-solid fa-award"></i> Specialist: Cultural Triangle & Hill Country Flora</span>
+          </div>
+        </div>
+
+        <!-- Insider 2 -->
+        <div class="flex flex-col sm:flex-row items-center gap-4 bg-sand-50 p-4 rounded-2xl border border-sand-200">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" 
+               alt="Dr. Nilmini - Ayurveda Specialist" 
+               class="w-20 h-20 rounded-full object-cover border-2 border-forest">
+          <div>
+            <div class="flex items-center gap-2">
+              <h4 class="font-bold text-sm text-forest">Dr. Nilmini Senanayake</h4>
+              <span class="bg-forest text-sand-100 text-[10px] px-2 py-0.5 rounded-full">Ayurvedic Physician</span>
+            </div>
+            <p class="text-stone-600 mt-1">
+              "Ayurveda in Sri Lanka is rooted in balance and local forest herbs. On our wellness retreats, I help guests identify their doshas and reset through unhurried healing."
+            </p>
+            <span class="text-[11px] font-semibold text-terracotta block mt-1"><i class="fa-solid fa-leaf"></i> Specialist: Pulse Diagnosis & Plant Medicine</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="p-4 bg-sand-100 border-t border-sand-200 text-center">
+        <button onclick="closeInsidersModal(); openInquiryModal('Driver Request');" class="px-6 py-2.5 bg-forest text-white rounded-full text-xs font-bold uppercase tracking-wider hover:bg-forest-light transition-all">
+          Request A Specific Guide For Your Journey
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="toast-notification" class="fixed top-6 right-6 z-50 transform translate-y-[-150%] transition-transform duration-300 max-w-sm w-full bg-forest-900 text-white p-4 rounded-2xl shadow-2xl flex items-center gap-3 border border-forest-light">
+    <div class="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0">
+      <i class="fa-solid fa-check"></i>
+    </div>
+    <div class="text-xs flex-1">
+      <div class="font-bold text-sand-100" id="toast-title">Request Received</div>
+      <div class="text-sand-200 text-[11px]" id="toast-message">We'll be in touch shortly!</div>
+    </div>
+    <button onclick="hideToast()" class="text-stone-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+
+  <script>
+    // Tour Data Store
+    const TOURS_DATA = [
+      {
+        id: 0,
+        title: "The Heritage & Cloud Highlands Trail",
+        category: "group bespoke",
+        tag: "Bestseller • Small Group & Private",
+        duration: "10 Days / 9 Nights",
+        meta: "Max 10-12 Travelers • Colombo to Southern Coast",
+        usdPrice: 2150,
+        days: [
+          { day: "Day 1-2: Negombo & The Cultural Triangle", desc: "Arrive at Bandaranaike Airport. Meet your insider guide and journey to Sigiriya. Climb the 5th-century Lion Rock fortress at sunrise before heat settles, followed by an authentic mud-hut lunch." },
+          { day: "Day 3-4: Sacred Kandy & Spice Valleys", desc: "Visit the Temple of the Sacred Tooth Relic. Stroll through the Royal Botanical Gardens of Peradeniya with a master botanist and taste organic clove teas in Matale." },
+          { day: "Day 5-6: Ella & The Legendary Blue Train", desc: "Board the colonial scenic train winding through misty tea plantations and Nine Arch Bridge. Hike Little Adam's Peak at dusk and sleep in a colonial planter's lodge." },
+          { day: "Day 7-8: Wild Yala Safari & Leopard Buffer", desc: "Track leopards, sloth bears, and wild Asian elephants with our private wildlife naturalist. Sleep in luxury safari eco-tents beneath the stars." },
+          { day: "Day 9-10: Galle Fort & Southern Ocean Farewell", desc: "Explore the cobbled Dutch-colonial streets of Galle Fort, unwind on secluded beaches in Tangalle, and enjoy a seaside sunset seafood dinner before departure." }
+        ]
+      },
+      {
+        id: 1,
+        title: "The Connoisseur’s Ceylon: Wild & Slow",
+        category: "bespoke",
+        tag: "Private Chauffeured Journey",
+        duration: "14 Days / 13 Nights",
+        meta: "Custom Pacing • Private Vehicle & Chauffeur-Storyteller",
+        usdPrice: 3200,
+        days: [
+          { day: "Day 1-3: Colombo Arts & Geoffrey Bawa Heritage", desc: "Private architectural tour of Number 11 (Geoffrey Bawa’s home) and Lunuganga country estate. Stay at boutique heritage properties with curated art collections." },
+          { day: "Day 4-7: Untamed Gal Oya & The Vedda Tribe", desc: "Boat safaris watching swimming elephants in Senanayake Samudraya reservoir. Walk the sacred forest with Chief of Sri Lanka's indigenous Vedda community." },
+          { day: "Day 8-11: High Tea Country & Slow Bungalow Life", desc: "Rest in the cool climate of Hatton. Enjoy high tea on manicured lawns, private chef dinners paired with old-world wines, and leisurely valley walks." },
+          { day: "Day 12-14: Mirissa Coves & Galle Fort Living", desc: "Private catamaran sail in search of blue whales, sunset cocktails on the ramparts of Galle Fort, and slow breakfasts under frangipani trees." }
+        ]
+      },
+      {
+        id: 2,
+        title: "Prana: Forest Ayurveda & Coastal Surf",
+        category: "wellness group",
+        tag: "Ayurveda & Soul Retreat",
+        duration: "8 Days / 7 Nights",
+        meta: "Intimate Retreat • Certified Ayurvedic Doctor Consults",
+        usdPrice: 1890,
+        days: [
+          { day: "Day 1-4: The Knuckles Mountain Sanctuary", desc: "Personal consultation with resident Ayurvedic physician. Daily customized herbal oil body treatments (Abhyanga & Shirodhara), morning pranayama, and organic farm meals." },
+          { day: "Day 5-6: Sound Healing & River Meditations", desc: "Natural stream dips, mindful forest walks, evening sound baths using Tibetan singing bowls, and Ayurvedic cooking workshops." },
+          { day: "Day 7-8: Southern Coast Gentle Surf & Sunset Rest", desc: "Transfer to private coastal sanctuary in Hiriketiya. Gentle morning longboard surf sessions suitable for beginners, yoga on open decks, and sound sleep." }
+        ]
+      }
+    ];
+
+    // Currency Rates Configuration (Approximate)
+    const CURRENCY_RATES = {
+      USD: { rate: 1, symbol: '$' },
+      EUR: { rate: 0.92, symbol: '€' },
+      GBP: { rate: 0.79, symbol: '£' },
+      AUD: { rate: 1.52, symbol: 'A$' }
+    };
+    let currentCurrency = 'USD';
+
+    // Trip Builder State
+    let builderState = {
+      party: 'solo',
+      partyCount: 1,
+      days: 10,
+      tierRate: 190
+    };
+
+    // Initialize Currency
+    function updateCurrency(currency) {
+      currentCurrency = currency;
+      const { rate, symbol } = CURRENCY_RATES[currency];
+
+      // Update all tour cards price displays
+      document.querySelectorAll('.price-display').forEach(el => {
+        const usd = parseFloat(el.getAttribute('data-usd'));
+        const converted = Math.round(usd * rate);
+        el.textContent = `${symbol}${converted.toLocaleString()}`;
+      });
+
+      // Recalculate trip builder
+      calculateBuilderPrice();
+      showToast('Currency Updated', `All prices now displayed in ${currency}`);
+    }
+
+    // Filter Tours
+    function filterTours(category, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('bg-forest', 'text-white');
+        b.classList.add('bg-white', 'text-stone-700');
+      });
+      btn.classList.add('bg-forest', 'text-white');
+      btn.classList.remove('bg-white', 'text-stone-700');
+
+      const cards = document.querySelectorAll('.tour-card');
+      cards.forEach(card => {
+        const cardCategories = card.getAttribute('data-category');
+        if (category === 'all' || cardCategories.includes(category)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Hero Search Handler
+    function handleHeroSearch() {
+      const region = document.getElementById('hero-region').value;
+      const style = document.getElementById('hero-style').value;
+      
+      // Scroll smoothly to expeditions
+      const expSection = document.getElementById('expeditions');
+      expSection.scrollIntoView({ behavior: 'smooth' });
+
+      // Match filter button if style specified
+      if (style === 'group') {
+        const groupBtn = document.querySelectorAll('.filter-btn')[1];
+        if (groupBtn) filterTours('group', groupBtn);
+      } else if (style === 'bespoke') {
+        const bespokeBtn = document.querySelectorAll('.filter-btn')[2];
+        if (bespokeBtn) filterTours('bespoke', bespokeBtn);
+      } else if (style === 'wellness') {
+        const wellnessBtn = document.querySelectorAll('.filter-btn')[3];
+        if (wellnessBtn) filterTours('wellness', wellnessBtn);
+      }
+
+      showToast('Journeys Filtered', 'Showing itineraries matching your island preferences.');
+    }
+
+    // Modal Drawer Itinerary Handler
+    let activeModalTourIndex = 0;
+    function openItineraryModal(index) {
+      activeModalTourIndex = index;
+      const tour = TOURS_DATA[index];
+      if (!tour) return;
+
+      document.getElementById('modal-tour-title').textContent = tour.title;
+      document.getElementById('modal-tour-tag').textContent = tour.tag;
+      document.getElementById('modal-tour-meta').textContent = `${tour.duration} • ${tour.meta}`;
+
+      const { rate, symbol } = CURRENCY_RATES[currentCurrency];
+      const convertedPrice = Math.round(tour.usdPrice * rate);
+      document.getElementById('modal-price').textContent = `${symbol}${convertedPrice.toLocaleString()}`;
+
+      // Populate Days
+      const dayContainer = document.getElementById('modal-day-flow');
+      dayContainer.innerHTML = '';
+      tour.days.forEach((d, idx) => {
+        const dayDiv = document.createElement('div');
+        dayDiv.className = "p-4 rounded-2xl bg-sand-50 border border-sand-200";
+        dayDiv.innerHTML = `
+          <div class="font-bold text-xs uppercase tracking-wider text-forest mb-1">${d.day}</div>
+          <p class="text-xs text-stone-600 leading-relaxed">${d.desc}</p>
+        `;
+        dayContainer.appendChild(dayDiv);
+      });
+
+      document.getElementById('itinerary-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeItineraryModal() {
+      document.getElementById('itinerary-modal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    function bookThisTourFromModal() {
+      const tour = TOURS_DATA[activeModalTourIndex];
+      closeItineraryModal();
+      openInquiryModal(`Booking Request: ${tour.title}`);
+    }
+
+    // Custom Trip Builder & Estimator Logic
+    function selectParty(type, count, btn) {
+      builderState.party = type;
+      builderState.partyCount = count;
+      document.querySelectorAll('#builder-party .builder-btn').forEach(b => {
+        b.classList.remove('border-terracotta', 'bg-sand-50/50');
+        b.classList.add('border-stone-200');
+      });
+      btn.classList.add('border-terracotta', 'bg-sand-50/50');
+      btn.classList.remove('border-stone-200');
+      calculateBuilderPrice();
+    }
+
+    function updateDuration(val) {
+      builderState.days = parseInt(val);
+      document.getElementById('duration-val').textContent = `${val} Days`;
+      calculateBuilderPrice();
+    }
+
+    function selectTier(tier, rate, btn) {
+      builderState.tierRate = rate;
+      document.querySelectorAll('#builder-tier .tier-btn').forEach(b => {
+        b.classList.remove('border-terracotta', 'bg-sand-50/50');
+        b.classList.add('border-stone-200');
+      });
+      btn.classList.add('border-terracotta', 'bg-sand-50/50');
+      btn.classList.remove('border-stone-200');
+      calculateBuilderPrice();
+    }
+
+    function calculateBuilderPrice() {
+      const { rate, symbol } = CURRENCY_RATES[currentCurrency];
+      
+      // Formula: daily base tier * days * party multiplier discount
+      let perPersonUsd = builderState.tierRate * builderState.days;
+      
+      // Group economies of scale
+      if (builderState.partyCount >= 2) perPersonUsd = perPersonUsd * 0.92;
+      if (builderState.partyCount >= 4) perPersonUsd = perPersonUsd * 0.85;
+
+      const totalUsd = perPersonUsd * builderState.partyCount;
+      const convertedTotal = Math.round(totalUsd * rate);
+      const convertedPerPerson = Math.round(perPersonUsd * rate);
+
+      document.getElementById('builder-calc-total').textContent = `${symbol}${convertedTotal.toLocaleString()}`;
+      document.getElementById('builder-calc-perperson').textContent = `approx. ${symbol}${convertedPerPerson.toLocaleString()} / person`;
+    }
+
+    function requestEstimatedTrip() {
+      openInquiryModal(`Custom Trip Estimator (${builderState.days} Days, ${builderState.partyCount} pax)`);
+    }
+
+    // Modal Inquiries & Bookings
+    function openInquiryModal(context = 'General Inquiry') {
+      document.getElementById('inquiry-context').value = context;
+      document.getElementById('inquiry-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeInquiryModal() {
+      document.getElementById('inquiry-modal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    function handleInquirySubmit(e) {
+      e.preventDefault();
+      closeInquiryModal();
+      showToast('Proposal Requested!', 'Ayubowan! Our founder or travel curator will craft your journey and email you within 24 hours.');
+    }
+
+    // Guide Modal
+    function openGuideModal() {
+      document.getElementById('guide-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeGuideModal() {
+      document.getElementById('guide-modal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    function handleGuideDownload(e) {
+      e.preventDefault();
+      const email = document.getElementById('modal-guide-email').value;
+      closeGuideModal();
+      showToast('Guidebook On Its Way!', `We've dispatched "Secret Ceylon 2025" to ${email}`);
+    }
+
+    function handleInlineGuide(e) {
+      e.preventDefault();
+      const email = document.getElementById('inline-guide-email').value;
+      document.getElementById('inline-guide-email').value = '';
+      showToast('Guide Downloaded!', `Thank you! Your PDF link has been sent to ${email}`);
+    }
+
+    // Insiders Modal
+    function openInsidersModal() {
+      document.getElementById('insiders-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeInsidersModal() {
+      document.getElementById('insiders-modal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    // WhatsApp Live Simulation
+    function toggleWhatsAppChat() {
+      const box = document.getElementById('wa-chatbox');
+      box.classList.toggle('hidden');
+    }
+
+    function sendSimulatedWhatsApp() {
+      const input = document.getElementById('wa-input');
+      const val = input.value.trim();
+      if (!val) return;
+
+      input.value = '';
+      showToast('WhatsApp Connected', 'Redirecting inquiry directly to our Colombo island team...');
+      setTimeout(() => {
+        toggleWhatsAppChat();
+      }, 1200);
+    }
+
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.getElementById('menu-icon');
+      menu.classList.toggle('hidden');
+      if (menu.classList.contains('hidden')) {
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+      } else {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-xmark');
+      }
+    }
+
+    // Toast Notification System
+    let toastTimeout;
+    function showToast(title, message) {
+      const toast = document.getElementById('toast-notification');
+      document.getElementById('toast-title').textContent = title;
+      document.getElementById('toast-message').textContent = message;
+      
+      toast.classList.remove('translate-y-[-150%]');
+      toast.classList.add('translate-y-0');
+
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        hideToast();
+      }, 5000);
+    }
+
+    function hideToast() {
+      const toast = document.getElementById('toast-notification');
+      toast.classList.remove('translate-y-0');
+      toast.classList.add('translate-y-[-150%]');
+    }
+
+    // Initial load setup
+    window.addEventListener('DOMContentLoaded', () => {
+      calculateBuilderPrice();
+    });
+  </script>
+
+</body>
+</html>
