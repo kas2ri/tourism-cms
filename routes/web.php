@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AppearanceController;
 use App\Http\Controllers\Admin\AuthController as AdminAuth;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DestinationController;
@@ -47,5 +48,9 @@ Route::prefix('admin')->group(function () {
         // Site Settings
         Route::get('/settings', [SettingController::class, 'edit'])->name('admin.settings.edit');
         Route::match(['put', 'post'], '/settings', [SettingController::class, 'update'])->name('admin.settings.update');
+
+        // Appearance & Layout Customization
+        Route::get('/appearance', [AppearanceController::class, 'edit'])->name('admin.appearance.edit');
+        Route::match(['put', 'post'], '/appearance', [AppearanceController::class, 'update'])->name('admin.appearance.update');
     });
 });

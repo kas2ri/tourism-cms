@@ -437,20 +437,45 @@ export function toggleWhatsAppChat() {
     const box = document.getElementById('wa-chatbox');
     if (box) {
         box.classList.toggle('hidden');
+        if (!box.classList.contains('hidden')) {
+            const input = document.getElementById('wa-input');
+            if (input) setTimeout(() => input.focus(), 100);
+        }
     }
 }
 
-export function sendSimulatedWhatsApp() {
+export function sendWhatsAppMessage(customMsg = null) {
     const input = document.getElementById('wa-input');
-    if (!input) return;
-    const val = input.value.trim();
-    if (!val) return;
+    const message = (typeof customMsg === 'string' && customMsg.trim()) 
+        ? customMsg.trim() 
+        : (input ? input.value.trim() : '');
 
-    input.value = '';
-    showToast('WhatsApp Connected', 'Redirecting inquiry directly to our Colombo island team...');
-    setTimeout(() => {
-        toggleWhatsAppChat();
-    }, 1200);
+    if (!message) return;
+
+    const rawPhone = window.WHATSAPP_PHONE || '94771234567';
+    const cleanPhone = String(rawPhone).replace(/\D/g, '') || '94771234567';
+
+    const url = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(message)}`;
+
+    if (input) {
+        input.value = '';
+    }
+
+    if (typeof showToast === 'function') {
+        showToast('Connecting to WhatsApp', 'Opening your WhatsApp chat with Kiyara Concierge...');
+    }
+
+    // Open WhatsApp in a new tab
+    window.open(url, '_blank', 'noopener,noreferrer');
+
+    const chatbox = document.getElementById('wa-chatbox');
+    if (chatbox) {
+        chatbox.classList.add('hidden');
+    }
+}
+
+export function sendSimulatedWhatsApp(customMsg = null) {
+    return sendWhatsAppMessage(customMsg);
 }
 
 // 10. Mobile Menu Toggle
@@ -521,13 +546,33 @@ window.handleInlineGuide = handleInlineGuide;
 window.openInsidersModal = openInsidersModal;
 window.closeInsidersModal = closeInsidersModal;
 window.toggleWhatsAppChat = toggleWhatsAppChat;
+window.sendWhatsAppMessage = sendWhatsAppMessage;
 window.sendSimulatedWhatsApp = sendSimulatedWhatsApp;
 window.toggleMobileMenu = toggleMobileMenu;
 window.showToast = showToast;
 window.hideToast = hideToast;
 
+// Navbar scroll readability
+function initNavbarScroll() {
+    const nav = document.getElementById('main-nav');
+    if (!nav) return;
+
+    const handleScroll = () => {
+        if (window.scrollY > 15) {
+            nav.classList.add('bg-[#f4efe6]/95', 'backdrop-blur-md', 'shadow-sm');
+        } else {
+            nav.classList.add('bg-[#f4efe6]/95', 'backdrop-blur-md', 'shadow-sm');
+        }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+}
+
 // Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
+    initNavbarScroll();
+
     // Restore saved currency or default
     updateCurrency(currentCurrency, true);
 

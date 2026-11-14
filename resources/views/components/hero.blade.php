@@ -1,7 +1,13 @@
+@php
+    $heroBg = setting('hero_background_image', 'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=2000&q=80');
+    $heroBgUrl = (str_starts_with($heroBg, 'http://') || str_starts_with($heroBg, 'https://'))
+        ? $heroBg
+        : \Illuminate\Support\Facades\Storage::url($heroBg);
+@endphp
 <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-forest-900 text-white">
     <!-- Ambient Background with High Quality Tropical Landscape -->
     <div class="absolute inset-0 z-0">
-        <img src="https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=2000&q=80" 
+        <img src="{{ $heroBgUrl }}" 
              alt="Sri Lanka Misty Tea Hills & Train" 
              class="w-full h-full object-cover opacity-40 scale-105 transition-transform duration-1000 ease-out"
              onerror="this.src='https://placehold.co/1920x1080/1a3b32/f4efe6?text=Kiyara+Holidays+Ceylon'">
@@ -18,11 +24,11 @@
 
         <!-- Main Headline -->
         <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-sand-50 leading-[1.1] mb-6">
-            Not just a holiday, but a journey that <span class="italic font-normal text-sand-200 underline decoration-terracotta underline-offset-8">lingers in your soul.</span>
+            {!! format_hero_headline(setting('hero_headline', 'Not just a holiday, but a journey that [lingers in your soul.]')) !!}
         </h1>
 
         <p class="max-w-2xl mx-auto text-base sm:text-lg text-sand-100 font-light leading-relaxed mb-10">
-            We move away from crowded tourist coaches. Join intimate, thoughtfully guided journeys, stay in colonial heritage bungalows and eco-villas, and connect directly with local islanders.
+            {{ setting('hero_subheadline', 'We move away from crowded tourist coaches. Join intimate, thoughtfully guided journeys, stay in colonial heritage bungalows and eco-villas, and connect directly with local islanders.') }}
         </p>
 
         <!-- Interactive Quick Journey Filter Bar -->
@@ -76,11 +82,19 @@
 
         <!-- Trust Metrics -->
         <div class="mt-8 flex flex-wrap items-center justify-center gap-6 sm:gap-12 text-xs sm:text-sm text-sand-200 font-light">
-            <span class="flex items-center gap-2"><i class="fa-solid fa-leaf text-emerald-400"></i> Carbon-Balanced Trips</span>
-            <span class="flex items-center gap-2"><i class="fa-solid fa-users text-terracotta-light"></i> Max 12 Travelers on Groups</span>
-            <span class="flex items-center gap-2"><i class="fa-solid fa-certificate text-gold"></i> SLTDA Certified Insider Drivers</span>
+            <span class="flex items-center gap-2">
+                <i class="fa-solid fa-leaf text-emerald-400"></i>
+                <span>{{ setting('hero_badge_1', 'Carbon-Balanced Trips') }}</span>
+            </span>
+            <span class="flex items-center gap-2">
+                <i class="fa-solid fa-users text-terracotta-light"></i>
+                <span>{{ setting('hero_badge_2', 'Max 12 Travelers on Groups') }}</span>
+            </span>
+            <span class="flex items-center gap-2">
+                <i class="fa-solid fa-certificate text-gold"></i>
+                <span>{{ setting('hero_badge_3', 'SLTDA Certified Insider Drivers') }}</span>
+            </span>
         </div>
 
     </div>
 </section>
-

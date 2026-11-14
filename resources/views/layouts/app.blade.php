@@ -25,6 +25,43 @@
     <!-- Vite Assets -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    <!-- Dynamic Theme Styling -->
+    <style>
+        :root {
+            --color-primary: {{ setting('theme_primary_color', '#1a3b32') }};
+            --color-secondary: {{ setting('theme_secondary_color', '#c86d51') }};
+            --color-bg-sand: {{ setting('theme_background_color', '#f4efe6') }};
+            --color-text-main: {{ setting('theme_text_color', '#1e292b') }};
+        }
+
+        body {
+            background-color: var(--color-bg-sand);
+            color: var(--color-text-main);
+        }
+
+        .bg-forest {
+            background-color: var(--color-primary) !important;
+        }
+        .text-forest {
+            color: var(--color-primary) !important;
+        }
+        .border-forest {
+            border-color: var(--color-primary) !important;
+        }
+        .bg-terracotta {
+            background-color: var(--color-secondary) !important;
+        }
+        .text-terracotta {
+            color: var(--color-secondary) !important;
+        }
+        .border-terracotta {
+            border-color: var(--color-secondary) !important;
+        }
+        .bg-sand-50 {
+            background-color: var(--color-bg-sand) !important;
+        }
+    </style>
+
     @stack('styles')
 </head>
 <body class="bg-sand-50 text-stone-800 font-sans antialiased selection:bg-terracotta selection:text-white">

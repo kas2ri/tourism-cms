@@ -88,6 +88,11 @@
                 @endif
             </a>
 
+            <a href="{{ route('admin.appearance.edit') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors {{ request()->routeIs('admin.appearance.*') ? 'bg-forest text-white font-bold' : 'hover:bg-forest-800 hover:text-white text-sand-200' }}">
+                <i class="fa-solid fa-palette w-4 text-center text-sm {{ request()->routeIs('admin.appearance.*') ? 'text-terracotta' : 'text-stone-400' }}"></i>
+                <span>Appearance & Layout</span>
+            </a>
+
             <a href="{{ route('admin.settings.edit') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors {{ request()->routeIs('admin.settings.*') ? 'bg-forest text-white font-bold' : 'hover:bg-forest-800 hover:text-white text-sand-200' }}">
                 <i class="fa-solid fa-sliders w-4 text-center text-sm {{ request()->routeIs('admin.settings.*') ? 'text-terracotta' : 'text-stone-400' }}"></i>
                 <span>Site Settings</span>
